@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    Vector2 velocity;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        velocity = new Vector2(0, 20);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Horizontal")>1)
+       if(Input.GetKey("space"))
         {
-            
+            rb.AddForce(velocity);
         }
     }
 }
