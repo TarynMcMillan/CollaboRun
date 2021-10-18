@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] float upwardVelocity;
     Rigidbody2D rb;
     Vector2 velocity;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        velocity = new Vector2(0, 20);
+        velocity = new Vector2(0, upwardVelocity);
     }
 
     void Update()
