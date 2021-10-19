@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundScroller : MonoBehaviour
+public class SceneScroller : MonoBehaviour
 {
     [SerializeField] float backgroundScrollSpeed = 0.5f;
     Material myMaterial;
