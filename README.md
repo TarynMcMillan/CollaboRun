@@ -52,4 +52,4 @@ Here's what you need to run the game in your local machine:
 
 # Share it!
 
-If you share anything related to your contributions, please use #CollaboRunGame !
+We encourage you to share your progress or anything related to your contributions. Please use #CollaboRunGame !
