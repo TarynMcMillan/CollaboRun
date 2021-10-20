@@ -37,12 +37,18 @@ Create a new Issue! Use the label "idea" so we can review it ASAP.
 
 Tip: Make sure your idea matches the general theme of the game.
 
+## Dependencies
+Here's what you need to run the game in your local machine:
+- [Unity](https://unity.com/download)
+- [Git](https://git-scm.com/downloads)
+
+
 # Guidelines
 
 - Be respectful.
 - Keep it simple! We intend to keep the codebase beginner-friendly.
 - PRs should contain code related to the assigned Issue only.
-- Use the Discussions section to discuss potential features and make questions.
+- Use the Discussions section to discuss potential features and ask questions.
 
 # Share it!
 
