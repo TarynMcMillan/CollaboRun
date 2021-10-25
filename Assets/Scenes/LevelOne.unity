@@ -838,7 +838,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04efd7de477dec943b0acd6cd9626ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upwardVelocity: 30
+  upwardVelocity: 15
+  xMin: -8
+  xMax: 1
+  movementSpeed: 3
 --- !u!50 &1899266100
 Rigidbody2D:
   serializedVersion: 4
@@ -851,7 +854,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1

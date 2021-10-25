@@ -5,19 +5,27 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float upwardVelocity;
+    [SerializeField] float xMin;
+    [SerializeField] float xMax;
+    [SerializeField] float movementSpeed;
     Rigidbody2D rb;
+    float step;
     Vector2 velocity;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, upwardVelocity);
+        step = movementSpeed * Time.deltaTime;
     }
 
     void Update()
     {
-       if(Input.GetKey("space"))
+        if (Input.GetKey("space"))
         {
             rb.AddForce(velocity);
         }
+
+        float inputX = Input.GetAxis("Horizontal");
+        transform.Translate(inputX * step, 0, 0);
     }
 }
