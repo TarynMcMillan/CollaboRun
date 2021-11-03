@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
+
     [SerializeField] float upwardVelocity;
     [SerializeField] float xMin;
     [SerializeField] float xMax;
     [SerializeField] float movementSpeed;
+
     Rigidbody2D rb;
     float step;
     Vector2 velocity;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,7 +26,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
+            if (!animator.GetBool("IsJumping"))
+                animator.SetBool("IsJumping", true);
+
             rb.AddForce(velocity);
+        }
+
+        if (rb.velocity.y <= 0)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
         float inputX = Input.GetAxis("Horizontal");
