@@ -39,7 +39,7 @@ Tip: Make sure your idea matches the general theme of the game.
 
 ## Dependencies
 Here's what you need to run the game in your local machine:
-- [Unity (v2020.3.20f1)](https://unity.com/download)
+- [Unity](https://unity.com/download) (v2020.3.2f1)
 - [Git](https://git-scm.com/downloads)
 
 
