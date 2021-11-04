@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     [SerializeField] float upwardVelocity;
-    [SerializeField] float xMin;
-    [SerializeField] float xMax;
     [SerializeField] float movementSpeed;
 
     Rigidbody2D rb;
@@ -22,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         step = movementSpeed * Time.deltaTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey("space"))
         {
@@ -32,12 +30,22 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(velocity);
         }
 
+        /*
         if (rb.velocity.y <= 0)
         {
             animator.SetBool("IsJumping", false);
         }
+        */
 
         float inputX = Input.GetAxis("Horizontal");
         transform.Translate(inputX * step, 0, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            animator.SetBool("IsJumping", false);
+        }
     }
 }
