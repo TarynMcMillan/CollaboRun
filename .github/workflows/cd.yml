@@ -36,9 +36,6 @@ jobs:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
 
-      - name: Test license
-        run: echo "license value ${{ secrets.UNITY_LICENSE }}"
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -55,4 +52,8 @@ jobs:
           name: ${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}
           path: build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip
 
-    
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/WebGL/${{ env.PROJECT_NAME }} # The folder the action should deploy.
