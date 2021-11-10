@@ -1,0 +1,55 @@
+name: Release
+
+on: 
+  # This allows for manual triggering of the action
+  workflow_dispatch:
+  # This will run this action on every push to the master branch
+  push:
+    branches:
+      - master
+
+jobs:    
+  build-project:
+    name: Build project
+    runs-on: ubuntu-latest
+
+    # Enter in project properties here
+    env:
+      PROJECT_NAME: CollaboRun
+
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:         # These are the definitions from: https://docs.unity3d.com/ScriptReference/BuildTarget.html
+          - WebGL               # Build for WebGL
+
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform:  ${{ matrix.targetPlatform }}
+          buildName: ${{ env.PROJECT_NAME }}
+
+      # Upload Artifacts
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}
+          path: build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip
+
+    
