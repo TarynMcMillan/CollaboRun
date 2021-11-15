@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, upwardVelocity);
-        step = movementSpeed * Time.deltaTime;
+        step = movementSpeed * Time.fixedDeltaTime;
     }
 
     void FixedUpdate()

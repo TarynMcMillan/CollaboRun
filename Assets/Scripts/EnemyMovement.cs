@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        step = movementSpeed * Time.deltaTime;
+        step = movementSpeed * Time.fixedDeltaTime;
         movement = new Vector2(-1, 0);
     }
 

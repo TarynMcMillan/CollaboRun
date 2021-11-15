@@ -15,6 +15,6 @@ public class SceneScroller : MonoBehaviour
     }
     void Update()
     {
-        myMaterial.mainTextureOffset += offSet * Time.deltaTime;
+        myMaterial.mainTextureOffset += offSet * Time.fixedDeltaTime;
     }
 }
