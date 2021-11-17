@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     float step;
     Vector2 velocity;
 
+    [SerializeField] private float groundRadius = .1f;
+    [SerializeField] private LayerMask groundMask ;
+
+    private RaycastHit2D[] hits = new RaycastHit2D[1];
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,10 +29,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            if (!animator.GetBool("IsJumping"))
-                animator.SetBool("IsJumping", true);
+            if (IsGrounded())
+            {
+                if (!animator.GetBool("IsJumping"))
+                    animator.SetBool("IsJumping", true);
 
-            rb.AddForce(velocity);
+                rb.AddForce(velocity);
+            }
         }
 
         /*
@@ -39,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         float inputX = Input.GetAxis("Horizontal");
         transform.Translate(inputX * step, 0, 0);
+    }
+
+    private bool IsGrounded() 
+    {
+        return Physics2D.CircleCastNonAlloc(transform.position,groundRadius,Vector2.down,hits,.1f,groundMask) > 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
