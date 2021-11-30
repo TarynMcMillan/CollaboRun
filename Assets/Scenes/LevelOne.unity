@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 1409506733}
   - component: {fileID: 1409506736}
   - component: {fileID: 1409506732}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -882,6 +882,10 @@ MonoBehaviour:
   animator: {fileID: 1899266102}
   upwardVelocity: 100
   movementSpeed: 10
+  groundRadius: 1.68
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!50 &1899266100
 Rigidbody2D:
   serializedVersion: 4
