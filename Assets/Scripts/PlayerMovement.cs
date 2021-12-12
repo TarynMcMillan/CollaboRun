@@ -13,9 +13,17 @@ public class PlayerMovement : MonoBehaviour
     float step;
     Vector2 velocity;
 
+    [SerializeField] private float groundRadius = .1f;
+    [SerializeField] private LayerMask groundMask;
+
+    private RaycastHit2D[] hits = new RaycastHit2D[1];
+
+    private Bounds playerBounds;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerBounds = GetComponent<Collider2D>().bounds;
         velocity = new Vector2(0, upwardVelocity);
         step = movementSpeed * Time.fixedDeltaTime;
     }
@@ -24,10 +32,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            if (!animator.GetBool("IsJumping"))
-                animator.SetBool("IsJumping", true);
+            if (IsGrounded())
+            {
+                if (!animator.GetBool("IsJumping"))
+                    animator.SetBool("IsJumping", true);
 
-            rb.AddForce(velocity);
+                rb.AddForce(velocity);
+            }
         }
 
         /*
@@ -41,9 +52,17 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(inputX * step, 0, 0);
     }
 
+    private bool IsGrounded()
+    {
+        var position = transform.position;
+        return Physics2D.CircleCastNonAlloc(
+            new Vector2(position.x, position.y - playerBounds.extents.y), groundRadius,
+            Vector2.down, hits, .1f, groundMask) > 0;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             animator.SetBool("IsJumping", false);
         }
