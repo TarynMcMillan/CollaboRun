@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<WaveConfig> waveConfigs;
     [SerializeField] int startingWave = 0;
     bool looping = false;
+    [SerializeField] Transform enemyParentTransform;
 
     AudioSource audioSource;
     int score;
