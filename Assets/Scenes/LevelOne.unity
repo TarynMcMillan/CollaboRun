@@ -496,7 +496,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -621,11 +620,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.304434, y: 1.5780358}
   m_EdgeRadius: 0
---- !u!4 &1385804732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-  m_PrefabInstance: {fileID: 6825215702867642773}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1409506731
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +742,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundScrollSpeed: 0.5
+--- !u!1 &1666112775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666112777}
+  - component: {fileID: 1666112776}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666112776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666112775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c56b60e0188b0f4f87ddee44d11c9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveConfigs:
+  - {fileID: 11400000, guid: 9ec70f28a06660a4e89f01951aedc5be, type: 2}
+  startingWave: 0
+--- !u!4 &1666112777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666112775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.48, y: -3.13, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1838199985
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +818,6 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1899266097}
   - {fileID: 404988715}
-  - {fileID: 1385804732}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1010,60 +1049,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0751724, y: 12.675763}
   m_EdgeRadius: 0
---- !u!1001 &6825215702867642773
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1838199986}
-    m_Modifications:
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523753, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825215704233523758, guid: f6449261df742214ba85acd521c03274, type: 3}
-      propertyPath: m_Name
-      value: Test Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f6449261df742214ba85acd521c03274, type: 3}
