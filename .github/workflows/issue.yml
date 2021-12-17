@@ -1,0 +1,27 @@
+# This workflow organizes new issues
+
+name: CI
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  commentNewIssue:
+    runs-on: ubuntu-latest
+    steps:
+    - run: >
+        gh issue comment $ISSUE --body "Thank you for opening this issue! We are labeling it with [idea] so we can review it and come back to you ASAP. 
+        You can ask for this issue in the comments if you want to work on it, but please don't start working until is reviewed and assigned to you."
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE: ${{ github.event.issue.number }}
+      
+  labelNewIssue:
+    runs-on: ubuntu-latest
+    steps:
+    - run: >
+        gh issue edit $ISSUE --add-label idea
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE: ${{ github.event.issue.number }}
