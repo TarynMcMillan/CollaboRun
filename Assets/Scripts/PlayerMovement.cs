@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,13 +22,33 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit2D[] hits = new RaycastHit2D[1];
 
     private Bounds playerBounds;
+    
+    [SerializeField] private int maxPlayerHealth = 100;
+    private int currentPlayerHealth;
 
+    public int CurrentPlayerHealth
+    {
+        get => currentPlayerHealth;
+        private set
+        {
+            if (value > maxPlayerHealth)
+                throw new Exception("you can't set the current health value beyond it's max value");
+            currentPlayerHealth = value;
+            PlayerHealthChange?.Invoke(maxPlayerHealth, CurrentPlayerHealth);
+        }
+    }
+
+    public event HealthChange PlayerHealthChange;
+
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerBounds = GetComponent<Collider2D>().bounds;
         velocity = new Vector2(0, upwardVelocity);
         step = movementSpeed * Time.fixedDeltaTime;
+
+        CurrentPlayerHealth = maxPlayerHealth;
     }
 
     private void Update()
@@ -73,7 +94,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
     }
+    public void TakeDamage(int damage)
+    {
+        CurrentPlayerHealth -= (damage < CurrentPlayerHealth) ? damage : CurrentPlayerHealth;
+    }
 
+    public delegate void HealthChange(int mxHealth, int currHealth);
 
 }
 
