@@ -1,3 +1,5 @@
+![logo](https://user-images.githubusercontent.com/2507959/147998029-1536b3bb-5722-4ebb-8d4b-c123bccd2feb.png)
+
 CollaboRun is an Infinite Runner game built through the collaboration of many amazing developers around the world!
 
 We intend this project to be a learning experience for all of us, especially beginner game devs. The idea is for you to contribute with small features and take advantage of the available assets and code.
