@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public List<GameObject> obstacles = new List<GameObject>();
-
+    public List<Obstacle> obstacles = new List<Obstacle>();
+    Obstacle currentObstacle;
     private void Start()
     {
         SpawnObstacle();
@@ -15,11 +15,11 @@ public class ObstacleSpawner : MonoBehaviour
     {
         
     }
-    void SpawnObstacle()
+    public void SpawnObstacle()
     {
-        transform.position = new Vector3(0, Random.Range(-3, 3), 0);
+        transform.position = new Vector3(transform.position.x, Random.Range(-1, 0), transform.position.z);
         int randomObstacle = Random.Range(0, obstacles.Count);
-        GameObject obstacleInstance = Instantiate(obstacles[randomObstacle], transform.position, Quaternion.identity);
-        obstacleInstance.transform.SetParent(this.transform, false);
+        currentObstacle = Instantiate(obstacles[randomObstacle], transform.position, Quaternion.identity);
+        currentObstacle.transform.SetParent(this.transform, false);
     }
 }
