@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
     public BoxCollider2D collider;
     public Rigidbody2D rb;
     private float width;
-    public float scrollSpeed;
+    float scrollSpeed = -12f;
 
     void Start()
     {
