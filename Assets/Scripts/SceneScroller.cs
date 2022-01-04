@@ -39,11 +39,6 @@ public class SceneScroller : MonoBehaviour
             transform.position = (Vector2)transform.position + resetPos;
             SpawnObstacle();
         }
-
-        //SpawnObstacle();
-
-        //myMaterial.mainTextureOffset += offSet * Time.fixedDeltaTime;
-        
        
     }
 
