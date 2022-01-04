@@ -28,6 +28,10 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(damage);
        }
+       else if (collision.gameObject.CompareTag("Boundary"))
+       {
+            Destroy(gameObject);
+       }
     }
 
 }

@@ -176,10 +176,6 @@ MonoBehaviour:
   obstacles:
   - {fileID: 6070100121579494728, guid: 73461aa0a8ac77e4eb3ed38193ce4f13, type: 3}
   - {fileID: 6070100121579494728, guid: 3574f1373b3a39c45ac6db3696b27002, type: 3}
-  spawnPos:
-  - {fileID: 783601011}
-  - {fileID: 1581469398}
-  - {fileID: 699038787}
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -2
@@ -454,7 +450,7 @@ GameObject:
   - component: {fileID: 430403832}
   m_Layer: 0
   m_Name: Boundaries
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -770,6 +766,36 @@ Transform:
   m_Father: {fileID: 17859857}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731346223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731346224}
+  m_Layer: 0
+  m_Name: Obstacle Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &731346224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731346223}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.700001, y: -2.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1175072522}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &783601010
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +838,7 @@ GameObject:
   - component: {fileID: 827497453}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -857,6 +883,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.304434, y: 1.5780358}
   m_EdgeRadius: 0
+--- !u!1 &1105964900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105964901}
+  m_Layer: 0
+  m_Name: Obstacle Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105964901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105964900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1493067073}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175072517
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,8 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9726c867464474b8c4c9ed487beb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
-  spawnPos: []
+  obstacles:
+  - {fileID: 6070100121579494728, guid: 73461aa0a8ac77e4eb3ed38193ce4f13, type: 3}
+  - {fileID: 6070100121579494728, guid: 3574f1373b3a39c45ac6db3696b27002, type: 3}
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -10
@@ -1002,7 +1059,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 731346224}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1128,7 +1186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles: []
-  spawnPos: []
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -2
@@ -1286,8 +1343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9726c867464474b8c4c9ed487beb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
-  spawnPos: []
+  obstacles:
+  - {fileID: 6070100121579494728, guid: 73461aa0a8ac77e4eb3ed38193ce4f13, type: 3}
+  - {fileID: 6070100121579494728, guid: 3574f1373b3a39c45ac6db3696b27002, type: 3}
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -10
@@ -1352,7 +1410,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1105964901}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1446,7 +1505,7 @@ GameObject:
   - component: {fileID: 1723791443}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Collider
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1708,7 +1767,7 @@ GameObject:
   - component: {fileID: 2007904982}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Collider
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

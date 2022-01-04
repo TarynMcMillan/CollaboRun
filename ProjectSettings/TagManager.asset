@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Collider
+  - Boundary
   layers:
   - Default
   - TransparentFX
