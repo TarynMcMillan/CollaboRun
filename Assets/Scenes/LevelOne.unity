@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1899266102}
-  upwardVelocity: 200
+  upwardVelocity: 1000
   movementSpeed: 10
   groundRadius: 0.1
   groundMask:
@@ -1495,11 +1495,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 6.3795433
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
